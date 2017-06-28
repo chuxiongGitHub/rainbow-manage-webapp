@@ -1,13 +1,10 @@
 <template lang="pug">
   .layout
-    div
-      Menu(mode="horizontal" active-name="1")
-        .layout-assistant
-          Menu-item(name="1")
-            Icon(type="ios-paper")
-            | 一级导航
-          Menu-item(name="2") 二级导航
-          Menu-item(name="3") 三级导航
+    Menu(mode="horizontal" active-name="1")
+      .layout-assistant
+        Menu-item(name="1")
+          .title
+          | 用户管理
 </template>
 <style lang="stylus" scoped>
 @import './style/app'

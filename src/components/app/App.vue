@@ -1,12 +1,13 @@
 <template lang="pug">
-.text 哈哈哈
+.text {{ system }}
 </template>
 
 <script>
 export default {
   data () {
     return {
-      spanLeft: 5
+      spanLeft: 5,
+      system: '用户管理系统'
     }
   },
   computed: {

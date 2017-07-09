@@ -7,7 +7,8 @@ const routers = new Router({
   mode: 'history',
   base: '/',
   routes: [
-    { path: '/', component: resolve => require(['@/components/app/App'], resolve) }
+    { path: '/user', name: 'user', component: resolve => require(['@/components/app/App'], resolve) },
+    { path: '/student', name: 'student', component: resolve => require(['@/components/student/View'], resolve) }
   ]
 })
 

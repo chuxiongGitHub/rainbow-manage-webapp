@@ -8,6 +8,9 @@
       Menu-item(name="user")
         Icon(type="folder")
         | 用户信息
+      Menu-item(name="teacher")
+        Icon(type="person")
+        | 教师信息
     router-view.container
 </template>
 

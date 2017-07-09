@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const instance = axios.create({
-  baseURL: `/api`,
+  baseURL: `${window.location.origin}/api`,
   headers
 })
 

@@ -11,6 +11,9 @@
       Menu-item(name="teacher")
         Icon(type="person")
         | 教师信息
+      Menu-item(name="map")
+        Icon(type="ios-location-outline")
+        | 地图信息
     router-view.container
 </template>
 
@@ -18,7 +21,7 @@
 export default {
   data () {
     return {
-      theme: 'dark'
+      theme: 'light'
     }
   },
   methods: {

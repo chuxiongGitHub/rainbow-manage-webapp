@@ -9,7 +9,8 @@ const routers = new Router({
   routes: [
     { path: '/user', name: 'user', component: resolve => require(['@/components/app/App'], resolve) },
     { path: '/student', name: 'student', component: resolve => require(['@/components/student/View'], resolve) },
-    { path: '/teacher', name: 'teacher', component: resolve => require(['@/components/teacher/View'], resolve) }
+    { path: '/teacher', name: 'teacher', component: resolve => require(['@/components/teacher/View'], resolve) },
+    { path: '/map', name: 'map', component: resolve => require(['@/components/map/Map'], resolve) }
   ]
 })
 

@@ -58,7 +58,6 @@ export default {
     })
   },
   created () {
-    console.log('调取created方法')
     this.$store.dispatch(LIST_STUDENT)
   }
 }

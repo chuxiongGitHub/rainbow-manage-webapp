@@ -3,6 +3,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import _ from 'lodash'
+// import { MAP_LIST } from 'store/map/keys'
 let AMap = null
 
 const loadScript = key => new Promise((resolve, reject) => {
@@ -16,8 +19,15 @@ export default {
   name: 'map',
   data () {
     return {
-      map: null
+      map: null,
+      infoData: {},
+      infoMarkers: []
     }
+  },
+  computed: {
+    ...mapState({
+      info: ({map}) => map.list
+    })
   },
   methods: {
     async init () {
@@ -30,12 +40,38 @@ export default {
       this.map.plugin(['AMap.TooBar'], () => {
         this.map.addControl(new AMap.ToolBar({ offset: new AMap.Pixel(0, 100), position: 'RB', liteStyle: true }))
       })
-      this.map.featureType(['bg', 'green ', 'road', 'building'])
-      this.showBuildingBlock(true)
+    },
+    renderInfoMarker () {
+      _.forEach(this.infoMarkers, marker => marker.setMap(null))
+
+      this.infoMarkers = _.map(this.infos, (arg) => {
+        console.log(123)
+        const icon = '/static/images/icon.png'
+        return this.createMarker({ position: arg.position, extData: { type: 'info', data: arg }, icon })
+      })
+    },
+    createMarker (position = {}, extData, icon) {
+      const { longitude, latitude } = position || {}
+      const location = new AMap.Marker({
+        map: this.map,
+        position: [longitude || 0, latitude || 0],
+        icon: new AMap.Icon({ image: icon }),
+        extData
+      })
+      return location
+    },
+    // 异步调用防止阻塞
+    async fetchInfo () {
+      console.log(123)
+      await this.$store.dispatch('map/map_list')
+      console.log(this.$store.dispatch('map/map_list'))
+      this.renderInfoMarker()
+      setTimeout(() => this.fetchInfo(), 20000)
     }
   },
   async mounted () {
     await this.init()
+    this.fetchInfo()
   }
 }
 </script>

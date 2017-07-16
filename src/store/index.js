@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 export default new Vuex.Store({
   modules: {
     student: require('./student').default,
-    teacher: require('./teacher').default
+    teacher: require('./teacher').default,
+    map: require('./map').default
   }
 })

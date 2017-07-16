@@ -1,3 +1,9 @@
 export default {
-  list: []
+  list: [],
+  query: {
+    sno: '',
+    sclass: '',
+    sbtirthday: '',
+    sname: ''
+  }
 }

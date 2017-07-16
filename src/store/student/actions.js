@@ -1,4 +1,4 @@
-import { LIST_STUDENT } from 'store/student/keys'
+import { LIST_STUDENT, FILTER_STUDENT } from 'store/student/keys'
 import iview from 'iview'
 import * as api from 'api/student'
 
@@ -10,5 +10,10 @@ export default {
     } catch ({message}) {
       iview.Message.error(message)
     }
+  },
+// 根据条件过滤
+  async [FILTER_STUDENT] ({state, commit, dispatch}, payload) {
+    commit(FILTER_STUDENT, payload)
+    dispatch(LIST_STUDENT)
   }
 }

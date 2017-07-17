@@ -3,7 +3,7 @@ export default {
   query: {
     sno: '',
     sclass: '',
-    sbtirthday: '',
+    ssex: '',
     sname: ''
   }
 }

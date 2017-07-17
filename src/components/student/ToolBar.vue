@@ -4,12 +4,25 @@
     Col(:span="4")
       Form(:label-width="80" :model="queryForm")
         Form-item(label="学号")
-          Input(v-model="queryForm.sno", placeholder="请输入")
-    Col(:span="18")
-      .row
-        Button(type="primary" @click="search") 查询
-        Button(type="default" style="margin-left:8px" @click="excel")  导出
-        Button(type="primary" style="margin-left:8px" @click="clear") 清空
+          Input(v-model="queryForm.sno", placeholder="请输入学号")
+    Col(:span="4")
+      Form(:label-width="80" :model="queryForm")
+        Form-item(label="姓名")
+           Input(v-model="queryForm.sname", placeholder="请输入姓名")
+    Col(:span="4")
+      Form(:label-width="80" :model="queryForm")
+        Form-item(label="性别")
+          Input(v-model="queryForm.ssex" placeholder="请输入性别")
+    Col(:span="4")
+      Form(:label-width="80" :model="queryForm")
+        Form-item(label="班级")
+          Input(v-model="queryForm.sclass" placeholder="请输入班级")
+    Col(:span="8")
+      Form(:label-width="80")
+        Form-item(style="text-align:right")
+          Button(type="primary" @click="search") 查询
+          Button(type="default" style="margin-left:8px" @click="excel")  导出
+          Button(type="primary" style="margin-left:8px" @click="clear") 清空
 </template>
 <script>
 import { mapState } from 'vuex'

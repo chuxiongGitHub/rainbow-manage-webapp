@@ -1,5 +1,5 @@
 <template lang="pug">
-.student
+.student-container
   .app-tooBar
     app-tooBar
   .app-table

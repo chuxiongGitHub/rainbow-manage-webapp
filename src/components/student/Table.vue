@@ -1,5 +1,5 @@
 <template lang="pug">
-  Table(:columns="columns" :data="students" stripe highlight-row)
+  Table(:columns="columns" :data="students.list" stripe highlight-row)
 </template>
 
 <script>
@@ -7,7 +7,6 @@ import { mapState } from 'vuex'
 import { LIST_STUDENT } from 'store/student/keys'
 import AppTableExpand from './TableExpand'
 export default {
-  props: ['list'],
   data () {
     return {
       columns: [

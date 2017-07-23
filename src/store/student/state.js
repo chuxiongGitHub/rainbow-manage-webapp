@@ -1,9 +1,12 @@
 export default {
-  list: [],
+  list: {},
+  total: 0,
   query: {
     sno: '',
     sclass: '',
     ssex: '',
-    sname: ''
+    sname: '',
+    page: 1,
+    size: 10
   }
 }

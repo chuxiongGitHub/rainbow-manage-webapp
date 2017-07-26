@@ -1,14 +1,33 @@
-import { LIST_STUDENT, FILTER_STUDENT, STUDENT_QUERY_CHANGE } from './keys'
+import { LIST_STUDENT, MODAL, EDIT, CREATE, FORM_CHANGE, QUERY_CHANGE } from './keys'
+import _ from 'lodash'
 
 export default {
   [LIST_STUDENT] (state, { list, page, size, total }) {
     state.list = list
-    state.total = total
+    state.total = list.total
   },
-  [FILTER_STUDENT] (state, { key, value }) {
-    state.query[key] = value
+  [MODAL] (state, { name, show }) {
+    state.modal[name] = show
+    if (name === 'form' && !show) {
+      state.form = _.cloneDeep(state._form)
+      state.isEdit = false
+      state.loading.edit = false
+    }
   },
-  [STUDENT_QUERY_CHANGE] (state, { key, value }) {
+  [EDIT] (state, { staus, info }) {
+    state.loading.edit = status === 0
+    state.isEdit = true
+    if (status === 1) {
+      state.form = {...info}
+    }
+  },
+  [CREATE] (state, { staus }) {
+    state.loading.create = status === 0
+  },
+  [FORM_CHANGE] (state, { key, value }) {
+    state.form[key] = value
+  },
+  [QUERY_CHANGE] (state, { key, value }) {
     state.query[key] = value
   }
 }

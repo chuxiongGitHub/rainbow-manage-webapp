@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     ...mapState({
-      info: ({map}) => map.list
+      info: ({map}) => map.list.list
     })
   },
   methods: {
@@ -44,27 +44,24 @@ export default {
     renderInfoMarker () {
       _.forEach(this.infoMarkers, marker => marker.setMap(null))
 
-      this.infoMarkers = _.map(this.infos, (arg) => {
-        console.log(123)
+      this.infoMarkers = _.map(this.info, (arg) => {
         const icon = '/static/images/icon.png'
-        return this.createMarker({ position: arg.position, extData: { type: 'info', data: arg }, icon })
+        return this.createMarker({ position: arg.position, icon })
       })
     },
-    createMarker (position = {}, extData, icon) {
+    createMarker (position = {}, icon) {
       const { longitude, latitude } = position || {}
+      console.log('position', position)
       const location = new AMap.Marker({
         map: this.map,
         position: [longitude || 0, latitude || 0],
-        icon: new AMap.Icon({ image: icon }),
-        extData
+        icon: new AMap.Icon({ image: icon })
       })
       return location
     },
     // 异步调用防止阻塞
     async fetchInfo () {
-      console.log(123)
       await this.$store.dispatch('map/map_list')
-      console.log(this.$store.dispatch('map/map_list'))
       this.renderInfoMarker()
       setTimeout(() => this.fetchInfo(), 20000)
     }

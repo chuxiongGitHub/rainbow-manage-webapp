@@ -1,3 +1,14 @@
+import _ from 'lodash'
+const form = {
+  sno: '',
+  sname: '',
+  sclass: '',
+  ssex: '',
+  sbirthday: ''
+}
+
 export default {
-  list: []
+  list: [],
+  _form: _.cloneDeep(form),
+  form: _.cloneDeep(form)
 }

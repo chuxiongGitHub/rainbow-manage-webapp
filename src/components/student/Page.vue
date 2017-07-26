@@ -10,7 +10,7 @@
     placement="top")
 </template>
 <script>
-import { STUDENT_QUERY_CHANGE } from 'store/student/keys'
+import { QUERY_CHANGE } from 'store/student/keys'
 import { mapState } from 'vuex'
 export default {
   computed: {
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     queryChange (key, value) {
-      this.$store.dispatch(STUDENT_QUERY_CHANGE, { key, value })
+      this.$store.dispatch(QUERY_CHANGE, { key, value })
     }
   }
 }

@@ -20,12 +20,14 @@
     Col(:span="8")
       Form(:label-width="80")
         Form-item(style="text-align:right")
-          Button(type="primary" @click="search") 查询
+          Button(type="primary" @click="open") 新增
+          Button(type="primary" @click="search" style="margin-left:8px") 查询
           Button(type="default" style="margin-left:8px" @click="excel")  导出
           Button(type="primary" style="margin-left:8px" @click="clear") 清空
 </template>
 <script>
 import { mapState } from 'vuex'
+import { MODAL } from 'store/student/keys'
 export default {
   computed: {
     ...mapState({
@@ -41,7 +43,10 @@ export default {
       window.location.href = 'localhost:85/api/v1/excel'
     },
     clear () {
-      this.$store.dispatch('student/list_student')
+      this.$store.dispatch('student/list/student')
+    },
+    open () {
+      this.$store.commit(MODAL, { name: 'form', show: true })
     }
   }
 }

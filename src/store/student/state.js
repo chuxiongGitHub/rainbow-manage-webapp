@@ -12,10 +12,7 @@ export default {
   list: {},
   total: 0,
   query: {
-    sno: '',
-    sclass: '',
-    ssex: '',
-    sname: '',
+    searchKey: '',
     page: 1,
     size: 10
   },
@@ -28,5 +25,6 @@ export default {
     edit: false
   },
   _form: _.cloneDeep(form),
-  form: _.cloneDeep(form)
+  form: _.cloneDeep(form),
+  queryResult: []
 }

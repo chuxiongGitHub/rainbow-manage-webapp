@@ -15,3 +15,5 @@ export const EDIT = prefix + 'edit'
 export const FORM_CHANGE = prefix + 'form/change'
 
 export const SAVE = prefix + 'save'
+
+export const QUERY_RESULT = prefix + 'quer/result'

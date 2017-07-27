@@ -1,7 +1,7 @@
-import { LIST_STUDENT, CREATE, MODAL, EDIT, QUERY_CHANGE } from 'store/student/keys'
+import { LIST_STUDENT, CREATE, MODAL, EDIT, QUERY_CHANGE, QUERY_RESULT } from 'store/student/keys'
 import iview from 'iview'
 import * as api from 'api/student'
-
+import _ from 'lodash'
 export default {
   // 获取列表
   async [LIST_STUDENT] ({ state, commit }) {
@@ -42,5 +42,12 @@ export default {
   [QUERY_CHANGE] ({ commit, dispatch }, payload) {
     commit(QUERY_CHANGE, payload)
     dispatch(LIST_STUDENT)
+  },
+  async [QUERY_RESULT] ({commit}, searchKey) {
+    if (!_.trim(searchKey)) {
+      commit(QUERY_CHANGE, [])
+      return
+    }
+    commit(QUERY_RESULT, await api.query(searchKey))
   }
 }

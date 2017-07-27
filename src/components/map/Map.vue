@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     async init () {
-      console.log('创建地图')
       AMap = await loadScript('4d014a4800e8f9fc8ef524a94db2588a')
       this.map = new AMap.Map(this.$el, {resizeEnable: true, zoom: 14, doubleClickZoom: false})
       this.map.setCity('昆明')

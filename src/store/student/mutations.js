@@ -1,4 +1,4 @@
-import { LIST_STUDENT, MODAL, EDIT, CREATE, FORM_CHANGE, QUERY_CHANGE } from './keys'
+import { LIST_STUDENT, MODAL, EDIT, CREATE, FORM_CHANGE, QUERY_CHANGE, QUERY_RESULT } from './keys'
 import _ from 'lodash'
 
 export default {
@@ -29,6 +29,9 @@ export default {
   },
   [QUERY_CHANGE] (state, { key, value }) {
     state.query[key] = value
+  },
+  [QUERY_RESULT] (state, info) {
+    state.queryResult = info
   }
 }
 

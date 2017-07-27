@@ -14,6 +14,9 @@
       Menu-item(name="map")
         Icon(type="ios-location-outline")
         | 地图信息
+      Menu-item(name="search")
+        Icon(type="ios-search-strong")
+        | 搜索列表  
     router-view.container
 </template>
 

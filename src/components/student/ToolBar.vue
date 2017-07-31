@@ -10,7 +10,7 @@
         Form-item(style="text-align:right")
           Button(type="primary" @click="open") 新增
           Button(type="primary" @click="search" style="margin-left:8px") 查询
-          Button(type="default" style="margin-left:8px" @click="excel")  导出
+          Button(type="default" style="margin-left:8px" @click="excel")  导出Excel
           Button(type="primary" style="margin-left:8px" @click="clear") 清空
 </template>
 <script>

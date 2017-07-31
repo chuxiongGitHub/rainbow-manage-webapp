@@ -4,10 +4,8 @@ import iview from 'iview'
 
 export default {
   async [MAP_LIST] ({ state, commit }) {
-    console.log(await api.list())
     try {
       commit(MAP_LIST, await api.list())
-      console.log(123)
     } catch ({ message }) {
       iview.Message.error(message)
     }

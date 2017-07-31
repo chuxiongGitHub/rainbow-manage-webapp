@@ -29,7 +29,7 @@ export default {
       iview.Message.error(message)
     }
   },
-  async [EDIT] ({commit}, sno) {
+  async [EDIT] ({ commit }, sno) {
     try {
       commit(EDIT, { status: 0 })
       commit(MODAL, { name: 'form', show: true })

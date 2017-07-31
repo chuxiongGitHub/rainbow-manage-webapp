@@ -7,7 +7,7 @@ const routers = new Router({
   mode: 'history',
   base: '/',
   routes: [
-    { path: '/user', name: 'user', component: resolve => require(['@/components/app/App'], resolve) },
+    { path: '/user', name: 'user', component: resolve => require(['@/components/user/View.vue'], resolve) },
     { path: '/', name: 'student', component: resolve => require(['@/components/student/View'], resolve) },
     { path: '/teacher', name: 'teacher', component: resolve => require(['@/components/teacher/View'], resolve) },
     { path: '/map', name: 'map', component: resolve => require(['@/components/map/Map'], resolve) },

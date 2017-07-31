@@ -4,7 +4,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { LIST_STUDENT } from 'store/student/keys'
+import { LIST_STUDENT, EDIT } from 'store/student/keys'
 import AppTableExpand from './TableExpand'
 export default {
   data () {
@@ -46,6 +46,11 @@ export default {
         {
           title: '班级',
           key: 'sclass'
+        },
+        {
+          title: '操作',
+          align: 'center',
+          render: (h, { row }) => <i-button type="info" size="small" onClick={ () => this.edit(row.sno) }>编辑</i-button>
         }
       ]
     }
@@ -58,6 +63,11 @@ export default {
   },
   created () {
     this.$store.dispatch(LIST_STUDENT)
+  },
+  methods: {
+    edit (sno) {
+      this.$store.dispatch(EDIT, sno)
+    }
   }
 }
 </script>

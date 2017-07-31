@@ -7,8 +7,7 @@
           remote,
           :loading="loading",
           :remote-method="remoteQuery",
-          :not-found-text="out",
-          setQuery="c"
+          :not-found-text="out"
           placeholder="请输入")
           Option(v-for="student in result" :value="student.sname" :key="student.sname") {{ student.sname }}
 </template>
@@ -38,10 +37,9 @@ export default {
   },
   out () {
     if (this.result === '') {
-      console.log('123')
-      return
-    } else {
       return '暂时没有数据'
+    } else {
+      return this.result
     }
   }
 }

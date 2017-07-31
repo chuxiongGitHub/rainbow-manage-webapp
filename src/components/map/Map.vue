@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     ...mapState({
-      info: ({map}) => map.list.list
+      info: ({map}) => map.list
     })
   },
   methods: {
@@ -48,19 +48,20 @@ export default {
         return this.createMarker({ position: arg.position, icon })
       })
     },
-    createMarker (position = {}, icon) {
-      const { longitude, latitude } = position || {}
+    createMarker ({ position = {}, icon }) {
+      const { longitude, latitude } = position
       console.log('position', position)
       const location = new AMap.Marker({
         map: this.map,
-        position: [longitude || 0, latitude || 0],
+        position: [longitude || 102.713114, latitude || 25.059949],
         icon: new AMap.Icon({ image: icon })
       })
+      console.log('location', location)
       return location
     },
     // 异步调用防止阻塞
     async fetchInfo () {
-      await this.$store.dispatch('map/map_list')
+      await this.$store.dispatch('map/list')
       this.renderInfoMarker()
       setTimeout(() => this.fetchInfo(), 20000)
     }

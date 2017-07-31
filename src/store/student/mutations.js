@@ -34,4 +34,3 @@ export default {
     state.queryResult = info
   }
 }
-

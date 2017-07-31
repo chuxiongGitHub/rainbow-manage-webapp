@@ -7,13 +7,13 @@
         | 学生信息
       Menu-item(name="user")
         Icon(type="folder")
-        | 用户信息
+        | 用户管理
       Menu-item(name="teacher")
         Icon(type="person")
         | 教师信息
       Menu-item(name="map")
         Icon(type="ios-location-outline")
-        | 地图信息
+        | 位置信息
       Menu-item(name="search")
         Icon(type="ios-search-strong")
         | 搜索列表  

@@ -8,7 +8,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 const instance = axios.create({
   baseURL: `${window.location.origin}/api`,
-  headers
+  timeout: 60000,
+  headers,
+  responseType: 'json'
 })
 
 instance.interceptors.response.use(response => Promise.resolve(response.data), error => {

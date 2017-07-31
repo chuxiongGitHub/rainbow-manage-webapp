@@ -50,7 +50,12 @@ export default {
         {
           title: '操作',
           align: 'center',
-          render: (h, { row }) => <i-button type="info" size="small" onClick={ () => this.edit(row.sno) }>编辑</i-button>
+          render: (h, { row }) => {
+            return <div style="margin:4px 0">
+              <i-button type="info" size="small" onClick={ () => this.edit(row.sno) }>编辑</i-button>
+              <i-button type="error" size="small" style="margin-left:5px" onClick={ () => this.delete(row.sno) }>删除</i-button>
+            </div>
+          }
         }
       ]
     }
@@ -67,6 +72,9 @@ export default {
   methods: {
     edit (sno) {
       this.$store.dispatch(EDIT, sno)
+    },
+    delete (sno) {
+      alert(sno)
     }
   }
 }

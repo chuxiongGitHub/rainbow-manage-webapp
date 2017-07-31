@@ -4,7 +4,7 @@
     Col(:span="15")
       Form(:label-width="90" :model="queryForm")
         Form-item(label="综合查询")
-          Input(v-model="queryForm.searchKey", @on-enter="search", placeholder="请输入学号/姓名/班级进行查询", icon="ios-search-strong")
+          Input(v-model="queryForm.searchKey", @on-enter="search", @on-blur="search" placeholder="请输入学号/姓名/班级进行查询", icon="ios-search-strong")
     Col(:span="8")
       Form(:label-width="80")
         Form-item(style="text-align:right")

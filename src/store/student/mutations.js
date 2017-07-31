@@ -14,7 +14,7 @@ export default {
       state.loading.edit = false
     }
   },
-  [EDIT] (state, { staus, info }) {
+  [EDIT] (state, { status, info }) {
     state.loading.edit = status === 0
     state.isEdit = true
     if (status === 1) {

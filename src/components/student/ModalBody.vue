@@ -1,7 +1,7 @@
 <template lang="pug">
   Form(:label-width="72")
     Spin(v-if="loading", fix)
-    Form-item(label="学号", :model="form")
+    Form-item(label="学号")
       Input(:value="form.sno", @on-change="value => change('sno', value.target.value)", :disabled="isEdit")
     Form-item(label="姓名")
       Input(:value="form.sname", @on-change="value => change('sname', value.target.value)")

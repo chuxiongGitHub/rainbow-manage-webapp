@@ -10,6 +10,7 @@ export default new Vuex.Store({
     student: require('./student').default,
     teacher: require('./teacher').default,
     map: require('./map').default,
-    user: require('./user').default
+    user: require('./user').default,
+    auth: require('./auth').default
   }
 })

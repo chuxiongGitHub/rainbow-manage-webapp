@@ -5,7 +5,7 @@ Vue.use(Router)
 
 const routers = new Router({
   mode: 'history',
-  base: '/',
+  base: '/app',
   routes: [
     { path: '/user', name: 'user', component: resolve => require(['@/components/user/View.vue'], resolve) },
     { path: '/', name: 'student', component: resolve => require(['@/components/student/View'], resolve) },

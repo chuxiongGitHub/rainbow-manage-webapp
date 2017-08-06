@@ -9,6 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
+    auth: './src/auth.js',
     app: './src/main.js'
   },
   output: {

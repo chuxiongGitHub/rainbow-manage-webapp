@@ -16,6 +16,7 @@
 <script>
 import { mapState } from 'vuex'
 import { MODAL, QUERY_CHANGE } from 'store/student/keys'
+import _ from 'lodash'
 export default {
   data () {
     return {
@@ -33,7 +34,9 @@ export default {
     },
     excel () {
       console.log('开始导出Excel数据')
-      window.location.href = 'localhost:85/api/v1/excel'
+      const params = _.chain(this.queryForm).map((value, key) => `${key}=${value}`).join('&').value()
+      console.log('params', params)
+      window.location.href = `${window.location.origin}/api/v1/excel?${params}`
     },
     clear () {
       this.queryForm.searchKey = ''

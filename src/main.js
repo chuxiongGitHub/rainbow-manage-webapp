@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css'
+import { USER_INFO } from 'store/auth/keys'
 
 Vue.config.productionTip = false
 Vue.use(iview)
@@ -14,5 +15,8 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(Main)
+  render: h => h(Main),
+  beforeCreate () {
+    store.dispatch(USER_INFO)
+  }
 })

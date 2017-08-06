@@ -5,6 +5,7 @@
 <script>
 import { mapState } from 'vuex'
 import _ from 'lodash'
+import { MAP_LIST } from 'store/map/keys'
 // import { MAP_LIST } from 'store/map/keys'
 let AMap = null
 
@@ -61,7 +62,7 @@ export default {
     },
     // 异步调用防止阻塞
     async fetchInfo () {
-      await this.$store.dispatch('map/list')
+      await this.$store.dispatch(MAP_LIST)
       this.renderInfoMarker()
       setTimeout(() => this.fetchInfo(), 20000)
     }

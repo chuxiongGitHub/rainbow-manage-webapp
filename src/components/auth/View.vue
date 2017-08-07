@@ -1,10 +1,16 @@
 <template lang="pug">
-  .auth
-    .wrapper
-      input(type="text" v-model="mobile" placeholder="用户名")
-      .line
-      Input(type="password" v-model="password" placeholder="密码")
-      button(type="primary" size="large" long @click="login") 登录
+.card-box
+  Form(label-position="left" :model="form" ref="form" style="width:350px;padding:35px 35px 15px 35px")
+    .title
+      h3 应用管理系统
+    Form-item(prop="mobile")
+      Input(type="text" v-model="form.mobile" placeholder="用户名")
+        Icon(type="ios-person-outline" slot="prepend")
+    Form-item(prop="password")
+      Input(type="password" v-model="form.password" placeholder="密码")
+        Icon(type="ios-locked-outline" slot="prepend")
+    Form-item(style="align:center")
+      Button(type="primary" @click="login" long) 登录
 </template>
 <script>
 import * as api from 'api/auth'
@@ -12,14 +18,16 @@ export default {
   name: 'app',
   data () {
     return {
-      mobile: '',
-      password: ''
+      form: {
+        mobile: '',
+        password: ''
+      }
     }
   },
   methods: {
     async login () {
       try {
-        const { mobile, password } = this
+        const { mobile, password } = this.form
         if (!mobile) throw new Error('用户名不能为空')
         if (!password) throw new Error('密码不能为空')
 

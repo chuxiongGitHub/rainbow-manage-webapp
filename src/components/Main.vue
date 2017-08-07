@@ -18,6 +18,19 @@
       Menu-item(name="search")
         Icon(type="ios-search-strong")
         | 搜索列表
+      Submenu(name="test")
+        template(slot="title")
+          Icon(type="ios-paper")
+          | 内容管理
+        Menu-item(name="test-1")
+          Icon(type="ios-paper")
+          | 文章管理
+        Menu-item(name="test-2")
+          Icon(type="ios-paper")
+          | 评论管理
+      Menu-item(name="echarts")
+        Icon(type="stats-bars")
+        | Echats数据报表
       .log-out
         Button(type="primary" @click="logout") 退出登录
     router-view.container

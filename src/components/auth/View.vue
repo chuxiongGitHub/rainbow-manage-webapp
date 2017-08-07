@@ -1,16 +1,25 @@
 <template lang="pug">
 .card-box
-  Form(label-position="left" :model="form" ref="form" style="width:350px;padding:35px 35px 15px 35px")
-    .title
-      h3 应用管理系统
+  Form(label-position="left" :model="form" ref="form")
+    .formLogin-title
+      Form-item()
+        h3 系统登录
     Form-item(prop="mobile")
-      Input(type="text" v-model="form.mobile" placeholder="用户名")
+      Input(type="text" v-model="form.mobile" placeholder="用户名" size="large")
         Icon(type="ios-person-outline" slot="prepend")
     Form-item(prop="password")
-      Input(type="password" v-model="form.password" placeholder="密码")
+      Input(type="password" v-model="form.password" placeholder="密码" size="large")
         Icon(type="ios-locked-outline" slot="prepend")
-    Form-item(style="align:center")
-      Button(type="primary" @click="login" long) 登录
+    .login-no-bottom
+      Checkbox-group(v-model="form.remember")
+        Checkbox(label="记住密码" name="Checkbox")
+    .login-no-bottom
+      Form-item()
+        Row
+          Col(:xs="{ span: 4, offset: 6 }")
+            Button(type="primary" @click="login") 登录
+          Col(:xs="{ span: 4, offset: 6 }")
+            Button(type="ghost" @click="reset('form')") 重置
 </template>
 <script>
 import * as api from 'api/auth'
@@ -20,7 +29,8 @@ export default {
     return {
       form: {
         mobile: '',
-        password: ''
+        password: '',
+        remember: []
       }
     }
   },
@@ -36,6 +46,9 @@ export default {
       } catch ({ message }) {
         alert(message)
       }
+    },
+    reset (name) {
+      this.$refs[name].resetFields()
     }
   }
 }

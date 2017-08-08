@@ -32,7 +32,7 @@
         Icon(type="stats-bars")
         | Echats报表
       .log-out
-        Button(type="primary" @click="logout") 退出登录
+        Button(type="primary" @click="logout" long) 退出登录
     router-view.container
 </template>
 

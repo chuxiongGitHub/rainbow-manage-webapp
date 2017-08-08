@@ -30,7 +30,7 @@
           | 评论管理
       Menu-item(name="echarts")
         Icon(type="stats-bars")
-        | Echats数据报表
+        | Echats报表
       .log-out
         Button(type="primary" @click="logout") 退出登录
     router-view.container
@@ -43,7 +43,7 @@ export default {
   components: { AppTest },
   data () {
     return {
-      theme: 'light'
+      theme: 'dark'
     }
   },
   methods: {

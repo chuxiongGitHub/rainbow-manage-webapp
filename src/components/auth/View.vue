@@ -1,27 +1,27 @@
 <template lang="pug">
 #app
-.card-box
-  Form(label-position="left" :model="form" ref="form")
-    .formLogin-title
-      Form-item()
-        h3 系统登录
-    Form-item(prop="mobile")
-      Input(type="text" v-model="form.mobile" placeholder="用户名" size="large")
-        Icon(type="ios-person-outline" slot="prepend")
-    Form-item(prop="password")
-      Input(type="password" v-model="form.password" placeholder="密码" size="large")
-        Icon(type="ios-locked-outline" slot="prepend")
-    .login-no-bottom
-      Checkbox-group(v-model="form.remember")
-        Checkbox(label="记住密码" name="Checkbox")
-    .login-no-bottom
-      Form-item()
-        Row
-          Col(:xs="{ span: 4, offset: 6 }")
-            Button(type="primary" @click="login") 登录
-          Col(:xs="{ span: 4, offset: 6 }")
-            Button(type="ghost" @click="reset('form')") 重置
-  .footer &copy 2017 陈彩虹 13698740791a@gmail.com
+  .card-box
+    Form(label-position="left" :model="form" ref="form")
+      .formLogin-title
+        Form-item()
+          h3 系统登录
+      Form-item(prop="mobile")
+        Input(type="text" v-model="form.mobile" placeholder="用户名" size="large")
+          Icon(type="ios-person-outline" slot="prepend")
+      Form-item(prop="password")
+        Input(type="password" v-model="form.password" placeholder="密码" size="large")
+          Icon(type="ios-locked-outline" slot="prepend")
+      .login-no-bottom
+        Checkbox-group(v-model="form.remember")
+          Checkbox(label="记住密码" name="Checkbox")
+      .login-no-bottom
+        Form-item()
+          Row
+            Col(:xs="{ span: 4, offset: 6 }")
+              Button(type="primary" @click="login") 登录
+            Col(:xs="{ span: 4, offset: 6 }")
+              Button(type="ghost" @click="reset('form')") 重置
+    .footer &copy 2017 陈彩虹 13698740791a@gmail.com
 </template>
 <script>
 import * as api from 'api/auth'

@@ -1,16 +1,18 @@
 <template lang="pug">
-.card-box
-  Form(label-position="left" :model="form" ref="form" style="width:350px;padding:35px 35px 15px 35px")
-    .title
-      h3 应用管理系统
-    Form-item(prop="mobile")
-      Input(type="text" v-model="form.mobile" placeholder="用户名")
-        Icon(type="ios-person-outline" slot="prepend")
-    Form-item(prop="password")
-      Input(type="password" v-model="form.password" placeholder="密码")
-        Icon(type="ios-locked-outline" slot="prepend")
-    Form-item(style="align:center")
-      Button(type="primary" @click="login" long) 登录
+#app
+  .card-box
+    Form(label-position="left" :model="form" ref="form" style="width:350px;padding:35px 35px 15px 35px")
+      .title
+        h3 应用管理系统
+      Form-item(prop="mobile")
+        Input(type="text" v-model="form.mobile" placeholder="用户名")
+          Icon(type="ios-person-outline" slot="prepend")
+      Form-item(prop="password")
+        Input(type="password" v-model="form.password" placeholder="密码")
+          Icon(type="ios-locked-outline" slot="prepend")
+      Form-item(style="align:center")
+        Button(type="primary" @click="login" long) 登录
+    .footer &copy 2017 陈彩虹 13698740791a@gmail.com
 </template>
 <script>
 import * as api from 'api/auth'
